@@ -1,0 +1,15 @@
+{
+  "name": "js-webcomponents",
+  "version": "1.0.0",
+  "description": "A simple JavaScript skeleton using Web Components.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"TODO: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "fernando.bonilla@live.com",
+  "license": "BSD",
+  "devDependencies": {    
+  }
+}

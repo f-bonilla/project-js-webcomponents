@@ -1,0 +1,13 @@
+{
+  "en": {
+    "change_language": "Change language",
+    "lang_not_available": "The language '{{lang}}' is not available.",
+    "submit": "Submit",
+    "welcome": "Welcome",
+    "email": "Email",
+    "password": "Password",
+    "email_ko": "The email provided is not correct.",
+    "login_ko": "Incorrect password mail combination.",
+    "error": "Error"
+  }
+}

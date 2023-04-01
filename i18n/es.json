@@ -1,0 +1,13 @@
+{
+  "es": {
+    "change_language": "Cambiar idioma",
+    "lang_not_available": "El lenguaje '{{lang}}' no está disponible.",
+    "submit": "Enviar",
+    "welcome": "Bienvenido",
+    "email": "Correo",
+    "password": "Clave",
+    "email_ko": "El correo proporcionado no es correcto.",
+    "login_ko": "Combinación correo clave incorrecta.",
+    "error": "Error"
+  }
+}

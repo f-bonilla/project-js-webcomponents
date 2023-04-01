@@ -1,0 +1,18 @@
+<template>
+	<style></style>
+	<div class="js-login">
+		<small><span data-lang="email">email</span>: guest@domain.com, <span data-lang="password">pass</span>: guest</small>
+		<form>
+			<div class="form__element">
+				<label for="email"><span data-lang="email">Email...</span> *</label>
+				<input id="email" type="email" required value="guest@domain.com">
+			</div>
+			<div class="form__element">
+				<label for="password"><span data-lang="password">Clave...</span> *</label>
+				<input id="password" type="password" required value="guest">
+			</div>
+			<button id="submit-form"><span data-lang="submit">Enviar...</span></button>
+		</form>
+		<user-messages></user-messages>
+	</div>	
+</template>
