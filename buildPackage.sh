@@ -137,10 +137,10 @@ str=""
 str=$str"import {logger, getUniqueId} from '"$rootPath"utils.js';"$LINE_BREAK
 str=$str"import Locale from '"$rootPath"locale.js';"$LINE_BREAK
 str=$str"import FileManager from '"$rootPath"file-manager.js';"$LINE_BREAK$LINE_BREAK
+str=$str"const ID = getUniqueId();"$LINE_BREAK$LINE_BREAK
 str=$str"class "$componentName" extends HTMLElement{"$LINE_BREAK
 str=$str$TAB"constructor(){"$LINE_BREAK
 str=$str$TAB$TAB"super();"$LINE_BREAK
-str=$str$TAB$TAB"this.ID = getUniqueId();"$LINE_BREAK
 str=$str$TAB"}"$LINE_BREAK
 str=$str$TAB"updateLang(){"$LINE_BREAK
 str=$str$TAB$TAB"Locale.update(this.shadow.querySelectorAll('[data-lang]'));"$LINE_BREAK
@@ -152,13 +152,13 @@ str=$str$TAB$TAB"(async ()=>{"$LINE_BREAK
 str=$str$TAB$TAB$TAB"const template = await FileManager.getHtml('./src/"$packagePath"/"$fileName".html');"$LINE_BREAK
 str=$str$TAB$TAB$TAB"this.shadow	= this.attachShadow({mode: 'open'});"$LINE_BREAK
 str=$str$TAB$TAB$TAB"this.shadow.appendChild(template.content.cloneNode(true));"$LINE_BREAK
-str=$str$TAB$TAB$TAB"Locale.suscribe(this.ID, this.updateLang.bind(this));"$LINE_BREAK
+str=$str$TAB$TAB$TAB"Locale.suscribe(ID, this.updateLang.bind(this));"$LINE_BREAK
 str=$str$TAB$TAB$TAB"this.addListeners();"$LINE_BREAK
 str=$str$TAB$TAB"})();"$LINE_BREAK
 str=$str$TAB"}"$LINE_BREAK
 str=$str$TAB"disconnectedCallback(){"$LINE_BREAK
 str=$str$TAB$TAB"this.removeListeners();"$LINE_BREAK
-str=$str$TAB$TAB"Locale.unsuscribe(this.ID);"$LINE_BREAK
+str=$str$TAB$TAB"Locale.unsuscribe(ID);"$LINE_BREAK
 str=$str$TAB"}"$LINE_BREAK
 str=$str$TAB"static get observedAttributes(){"$LINE_BREAK
 str=$str$TAB$TAB"return [];"$LINE_BREAK

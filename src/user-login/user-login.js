@@ -3,13 +3,14 @@ import Locale from '../locale.js';
 import FileManager from '../file-manager.js';
 import UserMessages from '../user-messages.js';
 
+const ID = getUniqueId();
+
 const userLogin = (email, password)=>email==='guest@domain.com' && password === 'guest';
 const checkForm = email=>isEmail(email);
 
 class UserLogin extends HTMLElement{
 	constructor(){
 		super();
-		this.ID = getUniqueId();
 	}
 	updateLang(){
 		Locale.update(this.shadow.querySelectorAll('[data-lang]'));
@@ -36,7 +37,7 @@ class UserLogin extends HTMLElement{
 			const template = await FileManager.getHtml('./src/user-login/user-login.html');
 			this.shadow = this.attachShadow({mode: 'open'});
 			this.shadow.appendChild(template.content.cloneNode(true));
-			Locale.suscribe(this.ID, this.updateLang.bind(this));
+			Locale.suscribe(ID, this.updateLang.bind(this));
 			this.userMessages = this.appendComponent('user-messages', UserMessages);
 			this.email = this.shadow.querySelector('#email');
 			this.password = this.shadow.querySelector('#password');
@@ -46,7 +47,7 @@ class UserLogin extends HTMLElement{
 	}
 	disconnectedCallback(){
 		this.removeListeners();
-		Locale.unsuscribe(this.ID);
+		Locale.unsuscribe(ID);
 	}
 	static get observedAttributes(){
 		return [];

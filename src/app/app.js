@@ -2,10 +2,11 @@ import {logger, getUniqueId} from '../utils.js';
 import Locale from '../locale.js';
 import FileManager from '../file-manager.js';
 
+const ID = getUniqueId();
+
 class App extends HTMLElement{
 	constructor(){
 		super();
-		this.ID = getUniqueId();
 	}
 	updateLang(){
 		Locale.update(this.shadow.querySelectorAll('[data-lang]'));
@@ -17,13 +18,13 @@ class App extends HTMLElement{
 			const template = await FileManager.getHtml('./src/app/app.html');
 			this.shadow = this.attachShadow({mode: 'open'});
 			this.shadow.appendChild(template.content.cloneNode(true));
-			Locale.suscribe(this.ID, this.updateLang.bind(this));
+			Locale.suscribe(ID, this.updateLang.bind(this));
 			this.addListeners();
 		})();
 	}
 	disconnectedCallback(){
 		this.removeListeners();
-		Locale.unsuscribe(this.ID);
+		Locale.unsuscribe(ID);
 	}
 	static get observedAttributes(){
 		return [];
